@@ -1,0 +1,4 @@
+# railway.toml
+
+[env]
+  PORT = 3000
