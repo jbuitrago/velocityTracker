@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+
+# TypeScript
+*.js
+*.map
+*.d.ts
+
+# Logs
+logs
+*.log
+
+# Compiled output
+dist/
+
+# Environment variables
+.env
+
+# Dependency directories
+.pnpm/
+.pnpm-lock.yaml
+yarn-error.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Ignore test files in build
+**/test/
+**/tests/
+
+package-lock.json

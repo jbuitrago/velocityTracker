@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": false, // Desactivar opciones estrictas si no son necesarias
+    "declaration": false, // Desactivar emisión de archivos de declaración
+    "declarationMap": false, // Desactivar emisión de mapas de declaración
+    "sourceMap": false // Desactivar emisión de source maps
+  },
+  "include": [
+    "src/**/*.ts" // Especificar archivos TypeScript a compilar
+  ]
+}
