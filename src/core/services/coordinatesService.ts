@@ -4,15 +4,37 @@ import { CoordinatesRepository } from "../../adapters/database/coordinatesReposi
 export class CoordinatesService {
   constructor(private coordinatesRepository: CoordinatesRepository) {}
 
-  public saveCoordinates(coordinates: Coordinates): void {
-    this.coordinatesRepository.saveCoordinates(coordinates);
+  public async saveCoordinates(coordinates: Coordinates): Promise<void> {
+    try {
+      await this.coordinatesRepository.saveCoordinates(coordinates);
+    } catch (error) {
+      throw new Error('Error al guardar las coordenadas');
+    }
   }
 
-  public getCoordinates(): Coordinates[] {
-    return this.coordinatesRepository.getCoordinates();
+  public async getCoordinates(): Promise<Coordinates[]> {
+    try {
+      return await this.coordinatesRepository.getCoordinates();
+    } catch (error) {
+      throw new Error('Error al obtener las coordenadas');
+    }
   }
 
-  public getCoordinatesBySid(sid: number): Coordinates | null {
-    return this.coordinatesRepository.getCoordinatesBySid(sid);
+  public async getCoordinatesBySid(sid: number): Promise<Coordinates | null> {
+    try {
+      return await this.coordinatesRepository.getCoordinatesBySid(sid);
+    } catch (error) {
+      throw new Error('Error al obtener las coordenadas por SID');
+    }
   }
+
+  public async deleteCoordinatesBySid(sid: number): Promise<void> {
+    try {
+      await this.coordinatesRepository.deleteCoordinatesBySid(sid);
+    } catch (error) {
+      throw new Error('Error al eliminar las coordenadas');
+    }
+  }
+
+  
 }
