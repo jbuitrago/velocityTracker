@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "cc94ae55-b341-476e-9423-5af97730928d",
+		"name": "verlocityTrackerTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5855376",
+		"_collection_link": "https://sirena.postman.co/workspace/Koandina~4b4cec0f-bbf3-4a1d-a490-ba00e44a80a8/collection/5855376-cc94ae55-b341-476e-9423-5af97730928d?action=share&source=collection_link&creator=5855376"
+	},
+	"item": [
+		{
+			"name": "coordinateBySid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://velocitytracker-develop.up.railway.app/coordinateBySid/12",
+					"protocol": "https",
+					"host": [
+						"velocitytracker-develop",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"coordinateBySid",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coordinates",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://velocitytracker-develop.up.railway.app/coordinates/12",
+					"protocol": "https",
+					"host": [
+						"velocitytracker-develop",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"coordinates",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coordinates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://velocitytracker-develop.up.railway.app/coordinates",
+					"protocol": "https",
+					"host": [
+						"velocitytracker-develop",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"coordinates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "coordinates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sid\": 12,          // Identificador único del objeto (Caballo,Perro,Etc)\r\n    \"latitude\": 1111,   // Latitud de la ubicación (ejemplo)\r\n    \"longitude\": 2222,  // Longitud de la ubicación (ejemplo)\r\n    \"distance\": 100     // Distancia desde un punto de referencia (ejemplo)\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://velocitytracker-develop.up.railway.app/coordinates",
+					"protocol": "https",
+					"host": [
+						"velocitytracker-develop",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"coordinates"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
