@@ -11,4 +11,8 @@ export class CoordinatesService {
   public getCoordinates(): Coordinates[] {
     return this.coordinatesRepository.getCoordinates();
   }
+
+  public getCoordinatesBySid(sid: number): Coordinates | null {
+    return this.coordinatesRepository.getCoordinatesBySid(sid);
+  }
 }

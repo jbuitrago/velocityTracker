@@ -6,10 +6,10 @@ export class CoordinatesController {
   constructor(private coordinatesService: CoordinatesService) {}
 
   public async handlePostCoordinates(req: Request, res: Response): Promise<void> {
-    const { latitude, longitude } = req.body;
+    const { sid, latitude, longitude } = req.body; // Agrega "sid" al destructuring
     try {
       // Creamos un objeto de tipo CoordinateDocument (modelo de Mongoose)
-      const coordinate: CoordinateDocument = new CoordinateModel({ latitude, longitude });
+      const coordinate: CoordinateDocument = new CoordinateModel({ sid, latitude, longitude }); // Agrega "sid" al constructor
       // Guardamos las coordenadas en MongoDB utilizando Mongoose
       await this.coordinatesService.saveCoordinates(coordinate);
       res.sendStatus(200);
@@ -24,6 +24,23 @@ export class CoordinatesController {
       // Obtenemos las coordenadas de MongoDB utilizando Mongoose
       const coordinates = await this.coordinatesService.getCoordinates();
       res.json(coordinates);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
+  // Método para obtener coordenadas por su identificador (sid)
+  public async handleGetCoordinatesBySid(req: Request, res: Response): Promise<void> {
+    const { sid } = req.params;
+    try {
+      // Llama al método del servicio para obtener las coordenadas por sid
+      const coordinate = await this.coordinatesService.getCoordinatesBySid(Number(sid));
+      if (coordinate) {
+        res.json(coordinate);
+      } else {
+        res.status(404).json({ error: 'Coordinates not found' });
+      }
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });
