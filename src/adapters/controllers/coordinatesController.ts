@@ -34,8 +34,9 @@ export class CoordinatesController {
   public async handleGetCoordinatesBySid(req: Request, res: Response): Promise<void> {
     const { sid } = req.params;
     try {
-      // Llama al método del servicio para obtener las coordenadas por sid
-      const coordinate = await this.coordinatesService.getCoordinatesBySid(Number(sid));
+      // Utiliza Mongoose para buscar las coordenadas por su identificador (sid)
+      const coordinate = await CoordinateModel.findOne({ sid: Number(sid) });
+
       if (coordinate) {
         res.json(coordinate);
       } else {

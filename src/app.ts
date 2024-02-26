@@ -14,5 +14,7 @@ const coordinatesController = new CoordinatesController(coordinatesService);
 
 app.post("/coordinates", coordinatesController.handlePostCoordinates.bind(coordinatesController));
 app.get("/coordinates", coordinatesController.handleGetCoordinates.bind(coordinatesController));
+app.get("/coordinateBySid/:sid", coordinatesController.handleGetCoordinatesBySid.bind(coordinatesController));
+
 
 export default app;
